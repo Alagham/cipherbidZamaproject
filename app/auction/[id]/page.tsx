@@ -1,14 +1,18 @@
-'use client';
+"use client";
 
-export const dynamic = 'force-dynamic'; // <--- Add this line
-
-import { AuctionDetailView } from '@/components/AuctionDetailView';
-import { useParams } from 'next/navigation';
+import { notFound, useParams } from "next/navigation";
+import { AuctionDetailView } from "@/components/AuctionDetailView";
 
 export default function AuctionPage() {
   const params = useParams();
 
-  if (!params?.id) return <div className="text-center py-20">Invalid auction ID</div>;
+  const id = Array.isArray(params?.id)
+    ? params.id[0]
+    : params?.id;
 
-  return <AuctionDetailView id={params.id} />;
+  if (!id || typeof id !== "string") {
+    notFound();
+  }
+
+  return <AuctionDetailView id={id} />;
 }
