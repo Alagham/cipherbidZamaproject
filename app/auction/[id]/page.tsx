@@ -6,11 +6,14 @@ import { AuctionDetailView } from "@/components/AuctionDetailView";
 export default function AuctionPage() {
   const params = useParams();
 
-  const id = Array.isArray(params?.id)
-    ? params.id[0]
-    : params?.id;
+  const id =
+    typeof params?.id === "string"
+      ? params.id
+      : Array.isArray(params?.id)
+      ? params.id[0]
+      : null;
 
-  if (!id || typeof id !== "string") {
+  if (!id) {
     notFound();
   }
 
