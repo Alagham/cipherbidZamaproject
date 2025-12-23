@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base reset for dark/light mode */
+:root {
+  --background: 0 0% 5%;        /* dark background HSL */
+  --foreground: 0 0% 100%;      /* white text */
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 70%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 100%;
+  --primary: 48 100% 55%;        /* yellow-ish */
+  --primary-foreground: 0 0% 0%;
+  --success: 140 60% 50%;        /* green */
+  --success-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+}
+
+[data-theme='light'] {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --muted: 0 0% 95%;
+  --muted-foreground: 0 0% 40%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+}
+
+/* Base styles */
+html,
+body {
+  @apply font-sans min-h-screen;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Links */
+a {
+  @apply text-primary hover:underline;
+  color: hsl(var(--primary));
+}
+
+/* Buttons */
+button {
+  @apply focus:outline-none;
+  color: hsl(var(--foreground));
+}
+
+/* Cards */
+.card,
+.card-content,
+.card-header,
+.card-title {
+  color: hsl(var(--card-foreground));
+  background-color: hsl(var(--card));
+}
+
+/* Paragraphs & headings */
+p, span, h1, h2, h3, h4, h5, h6, label {
+  color: hsl(var(--foreground));
+}
+
+/* Muted text */
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Utility: ensure all text inside inputs/textareas is white */
+input, textarea {
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--muted));
+  border-color: hsl(var(--border));
+}
+
+/* Dark/light mode toggle (optional for JS) */
+[data-theme='dark'] {
+  --background: 0 0% 5%;
+  --foreground: 0 0% 100%;
+}
