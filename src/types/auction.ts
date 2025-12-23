@@ -1,10 +1,8 @@
-export type AuctionStatus = 'open' | 'closed' | 'pending';
-
 export interface Auction {
   id: string;
   title: string;
   description: string;
-  status: AuctionStatus;
+  status: 'open' | 'closed' | 'pending' | 'cancelled';
   participants: number;
   bidsCount: number;
   timeLeft: string;
