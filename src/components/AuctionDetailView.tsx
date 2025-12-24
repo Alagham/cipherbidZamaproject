@@ -56,10 +56,12 @@ export function AuctionDetailView({ id }: AuctionDetailViewProps) {
 
   // ✅ PROPERLY TYPED STATUS MAP
   const statusClasses: Record<AuctionStatus, string> = {
-    open: "bg-green-600 text-white",
-    closed: "bg-gray-600 text-white",
-    cancelled: "bg-red-600 text-white",
-  };
+  open: "bg-green-600 text-white",
+  pending: "bg-yellow-500 text-black",
+  closed: "bg-gray-600 text-white",
+  cancelled: "bg-red-600 text-white",
+};
+
 
   return (
     <div className="space-y-10 text-white">
